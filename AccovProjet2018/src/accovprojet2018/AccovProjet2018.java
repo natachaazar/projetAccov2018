@@ -1,21 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package accovprojet2018;
 
-/**
- *
- * @author Lenovo
- */
 public class AccovProjet2018 {
-
-    /**
-     * @param args the command line arguments
-     */
+    static Couleur [] couleurs={
+            Couleur.JAUNE,
+            Couleur.BLEU,
+            Couleur.ROUGE,
+            Couleur.BLEU,
+            Couleur.JAUNE,
+            Couleur.BLEU
+        };
+        static Cameneon [] cameneons = new Cameneon[couleurs.length];
+        
     public static void main(String[] args) {
-        // TODO code application logic here
+        Agora agora = new Agora();
+        for(int i=0;i<couleurs.length;i++){
+            cameneons[i] = new Cameneon(agora,i+" ",couleurs[i]);
+        }
+        for(int j=0;j<couleurs.length;j++){
+            cameneons[j].start();
+        }
+       
+        
     }
     
 }
