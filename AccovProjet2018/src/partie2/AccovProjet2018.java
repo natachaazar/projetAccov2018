@@ -1,4 +1,4 @@
-package accovprojet2018;
+package partie2;
 
 public class AccovProjet2018 {
     static Couleur [] couleurs={
@@ -12,12 +12,12 @@ public class AccovProjet2018 {
         static Cameneon [] cameneons = new Cameneon[couleurs.length];
         
     public static void main(String[] args) {
-        Agora agora = new Agora();
         for(int i=0;i<couleurs.length;i++){
-            cameneons[i] = new Cameneon(agora,i+" ",couleurs[i]);
+            cameneons[i] = new Cameneon(i+" ",couleurs[i]);
         }
-        for(int j=0;j<couleurs.length;j++){
-            cameneons[j].start();
+        for(int j=0;j<couleurs.length-1;j++){
+            new Mutation(cameneons[j],cameneons[j+1]).start();
+            new Mutation(cameneons[j+1],cameneons[j]).start();
         }
        
         

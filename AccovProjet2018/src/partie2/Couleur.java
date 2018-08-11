@@ -1,4 +1,4 @@
-package accovprojet2018;
+package partie2;
 
 public class Couleur {
     public int couleurInterne;

@@ -1,4 +1,4 @@
-package accovprojet2018;
+package partie1;
 
 public class Cameneon extends Thread {
     private Agora agora;
