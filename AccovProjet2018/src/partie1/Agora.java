@@ -1,35 +1,35 @@
 package partie1;
 
 public class Agora {
-    private Couleur Couleur1,Couleur2;
+
+    private Couleur Couleur1, Couleur2;
     private boolean PremierAppel = true;
     private boolean DoitAttendre = false;
-    
-    public synchronized Couleur Rencontre(String cameneonId,Couleur couleur){
+
+    public synchronized Couleur Rencontre(String cameneonId, Couleur couleur) {
         Couleur resultat;
-        
-        while(DoitAttendre){
-            try{
+
+        while (DoitAttendre) {
+            try {
                 wait();
-            }catch(InterruptedException e){
+            } catch (InterruptedException e) {
                 System.out.println("erreur catch 1");
             }
         }
-        if(PremierAppel){
+        if (PremierAppel) {
             Couleur1 = couleur;
             PremierAppel = false;
-            while (!PremierAppel){
-                try{
+            while (!PremierAppel) {
+                try {
                     wait();
-                }catch(InterruptedException e){
+                } catch (InterruptedException e) {
                     System.out.println("erreur catch 2");
                 }
             }
             DoitAttendre = false;
             resultat = Couleur2;
             notifyAll();
-        }
-        else{
+        } else {
             Couleur2 = couleur;
             resultat = Couleur1;
             PremierAppel = true;
